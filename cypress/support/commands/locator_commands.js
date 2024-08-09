@@ -13,7 +13,7 @@ export default{
 
         //cy.visit('locator')
         cy.xpath(elements.buttons.buttonFindaShowroom)
-         .click();
+        .click();
         cy.contains('Select a dealer')
         .should('be.visible');
 
