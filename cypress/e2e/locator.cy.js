@@ -14,8 +14,9 @@ describe('Locator Page Tests', () => {
     it('should click the Request Now button', () => {
         locatorCommands.clickRequestNow();
     });
-    it.only('Fill in All fields Rac Form', () =>{
+    it('Fill in All fields Rac Form', () =>{
         locatorCommands.clickRequestNow();
         locatorCommands.fillInRacform();
+        //comentario de teste
     })
 });
