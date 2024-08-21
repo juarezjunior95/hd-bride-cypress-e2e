@@ -4,7 +4,7 @@ name: Run schudules tests
 #Quando ela vai ser executada
 on:
   schedule:
-    - cron: '35 16 * * 1-5'
+    - cron: '45 16 * * 1-5'
   
 jobs: 
   # oque vai ser feito na pipeline
