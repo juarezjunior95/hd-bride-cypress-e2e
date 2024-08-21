@@ -22,7 +22,7 @@ jobs:
         with:
           record: True
         env:
-          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORDE_KEY}}
+          CYPRESS_RECORD_KEY: ${{secrets.CYPRESS_RECORD_KEY}}
 
           #Upload do relatorio do mocha
       - name: upload relatorio
