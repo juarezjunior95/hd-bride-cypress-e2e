@@ -15,11 +15,18 @@ jobs:
 
     steps:
       - name: Checkout/Clone do projeto
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       #Execuçao de configuração do nosso projeto
       - name: Cypress run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v5
         with:
           record: True
         env:
-          CYPRES_RECORD_KEY: ${{secrets.CYPRESS_RECORDE_KEY}}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+          #Upload do relatorio do mocha
+      - name: upload relatorio
+        uses: actions/upload-artifact@v3
+        with:
+          name: Relatorio dos testes e2e
+          path: cypress/reports/html
