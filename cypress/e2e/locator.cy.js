@@ -18,5 +18,6 @@ describe('Locator Page Tests', () => {
         locatorCommands.clickRequestNow();
         locatorCommands.fillInRacform();
         //comentario de teste
+        // adicionar mais testes
     })
 });
