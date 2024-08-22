@@ -6,7 +6,7 @@
 const elements = {
   buttons: {
       buttonFindaShowroom: '//a[contains(.,"Find a showroom")]',
-      buttonRequestNow: '//button[contains(text(), "REQUEST NOW")]',
+      buttonRequestNow: '.flex-col-reverse > :nth-child(2) > .MuiButtonBase-root',
       buttonSubmited: 'button[type="submit"][form="rac-form"]'
       
   },
@@ -25,7 +25,9 @@ const elements = {
   messages: {
       titleHome: 'How to buy Hunter Douglas Window Treatments',
       titleRacForm: 'REQUEST A CONSULTATION',
-      racFormSubmited:'Thank you for submitting your contact information'
+      racFormSubmited:'Thank you for submitting your contact information',
+      ERROR_MESSAGE_EMAIL: 'p.MuiFormHelperText-root.Mui-error',
+      EXPECTED_ERROR_MESSAGE_EMAIL: 'Enter a valid email address'
 
   },
 

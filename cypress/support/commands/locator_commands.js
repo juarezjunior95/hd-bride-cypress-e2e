@@ -13,7 +13,7 @@ export default{
 
         //cy.visit('locator')
         cy.xpath(elements.buttons.buttonFindaShowroom)
-         .click();
+         .click({force: true});
         cy.contains('Select a dealer')
         .should('be.visible');
 
@@ -21,12 +21,15 @@ export default{
 
     clickRequestNow() {
       //  cy.visit('locator');
-        cy.xpath(elements.buttons.buttonRequestNow)
-         .click({force: true});
+          cy.get(elements.buttons.buttonRequestNow)
+         // .scrollIntoView(elements.buttons.buttonRequestNow)  
+          .should('exist')
+          .and('be.visible')
+          .click({force: true});
         // Verifique se algo esperado após o clique está visível (opcional)
-        cy.contains(elements.messages.titleRacForm)
-        .should('be.visible');
-    
+          cy.contains(elements.messages.titleRacForm)
+          .should('be.visible');
+      
     },
 
     fillInRacform(){
@@ -44,20 +47,19 @@ export default{
          .type(phone)
         cy.get(elements.fields.emailField)
          .type(email) 
-       // cy.get(elements.fields.textArea) 
-       // .type(longText)
-        // .invoke('val')
-        // .then((val) => {
-        // Verificar que o comprimento do valor não excede 450 caracteres
-       // expect(val.length).to.be.lte(450);
-        // Verificar que o valor do campo é igual aos primeiros 450 caracteres do texto longo
-       // expect(val).to.equal(expectedText);
+
         cy.get(elements.checkbox.checkboxGetService)
          .click();
         cy.get(elements.buttons.buttonSubmited)
          .click({ force: true})
-         //.click({force: true});
-        cy.contains(elements.messages.racFormSubmited).should('be.visible')
+         
+      //  cy.contains(elements.messages.ERROR_MESSAGE_EMAIL)
+       // .should('be.visible')
+       // .and('have.text', elements.messages.EXPECTED_ERROR_MESSAGE_EMAIL); 
+        cy.get(elements.messages.ERROR_MESSAGE_EMAIL)  // Localiza o <p> pelo seletor CSS específico
+       .should('be.visible')                       // Verifica se está visível
+       .and('have.text', elements.messages.EXPECTED_ERROR_MESSAGE_EMAIL); // Valida se o texto está correto
+
 }
 };
 
