@@ -1,11 +1,11 @@
 # Nome da pipeline
-name: Run Basic tests
+name: Run schudules tests
 
 #Quando ela vai ser executada
 on:
-  pull_request:
-    branches: [main]
-
+  schedule:
+    - cron: '45 16 * * 1-5'
+  
 jobs: 
   # oque vai ser feito na pipeline
   #só vamos ter um job para rodar os testes

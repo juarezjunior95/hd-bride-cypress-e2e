@@ -5,10 +5,9 @@ export default{
 
 
         cy.visit('/')
-        cy.get(elements.fields.inputById, { timeout: 10000 }).should('be.visible').type('90001')
-        // Verificar se o valor foi digitado corretamente
-        //cy.get('#\\:r2\\:').should('have.value', '90001')
-        cy.get('button[type="submit"]').click({ force: true})
+        cy.get('img[alt="alt text"]').should('be.visible');
+        cy.get('a.pl-1.underline[href="/locator"]').click();
+        cy.url().should('include', '/locator')
         cy.wait(5000)
     }
 }

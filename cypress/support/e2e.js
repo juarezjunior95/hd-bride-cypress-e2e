@@ -16,7 +16,9 @@
 // Import commands.js using ES2015 syntax:
 //import './commands/home_page_commands'
 //import './locator_page_commands'
+require('cypress-plugin-xhr-toggle');
 require('cypress-xpath');
+import '@shelex/cypress-allure-plugin';
 import './commands/home_commands'
 import './commands/locator_commands'
 Cypress.on('uncaught:exception', (err, runnable) => {
