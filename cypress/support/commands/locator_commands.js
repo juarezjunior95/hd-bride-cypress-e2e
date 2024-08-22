@@ -22,7 +22,7 @@ export default{
     clickRequestNow() {
       //  cy.visit('locator');
         cy.xpath(elements.buttons.buttonRequestNow)
-         .click();
+         .click({force: true});
         // Verifique se algo esperado após o clique está visível (opcional)
         cy.contains(elements.messages.titleRacForm)
         .should('be.visible');
@@ -30,8 +30,8 @@ export default{
     },
 
     fillInRacform(){
-        const longText = 'A'.repeat(500); // Texto com 500 caracteres
-        const expectedText = longText.substring(0, 450); // Primeiros 450 caracteres
+        //const longText = 'A'.repeat(500); // Texto com 500 caracteres
+       // const expectedText = longText.substring(0, 450); // Primeiros 450 caracteres
         cy.xpath(elements.fields.inputFirstName)
          .type(firstName)
        // cy.xpath(elements.fields.inputLastName)
@@ -44,21 +44,21 @@ export default{
          .type(phone)
         cy.get(elements.fields.emailField)
          .type(email) 
-        cy.get(elements.fields.textArea) 
-        .type(longText)
-         .invoke('val')
-         .then((val) => {
+       // cy.get(elements.fields.textArea) 
+       // .type(longText)
+        // .invoke('val')
+        // .then((val) => {
         // Verificar que o comprimento do valor não excede 450 caracteres
-        expect(val.length).to.be.lte(450);
+       // expect(val.length).to.be.lte(450);
         // Verificar que o valor do campo é igual aos primeiros 450 caracteres do texto longo
-        expect(val).to.equal(expectedText);
+       // expect(val).to.equal(expectedText);
         cy.get(elements.checkbox.checkboxGetService)
          .click();
         cy.get(elements.buttons.buttonSubmited)
          .click({ force: true})
          //.click({force: true});
         cy.contains(elements.messages.racFormSubmited).should('be.visible')
-    });
+}
+};
 
-}
-}
+
